@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block Name %}Model Manga{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+            <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+    {% block header %}
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item mr-4">
+            <h3><a class="nav-link text-primary text-uppercase" href="{{ path ('modelmanga_index') }}">Model</a></h3>
+            </li>
+            <li class="nav-item mr-4">
+            <h3><a class="nav-link text-primary text-uppercase" href="{{ path ('category_index') }}">Category</a></h3>
+            </li>
+            <li class="nav-item text-right">
+							<h3>
+								<a class="nav-link text-primary text-uppercase text-right" style="margin-left:800px" href="{{ path ('app_logout') }}">Logout</a>
+							</h3>
+						</li>
+            
+        </ul>
+        </div>
+    </div>
+  </nav>
+    {% endblock %}
+
+
+       {% block body %} {% endblock %}
+
+        {% set copyright = "Copyright by Vu Hoang Ha!" %}
+
+        {% block footer %} 
+           <p class="text-info text-center text-bold mt-5">&copy; {{ copyright }} </p>
+        {% endblock %}
+    
+    </body>
+</html>

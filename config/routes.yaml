@@ -1,0 +1,10 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+# category_create:
+#     path: /category/create
+#     controller: App\Controller\CategoryController::createnewCategory
+
+# category_detail:
+#     path: /category{id}
+#     controller: App\Controller\CategoryController::detailCategory

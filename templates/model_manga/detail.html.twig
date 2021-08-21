@@ -1,0 +1,63 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Model Manga Detail {% endblock %}
+
+{% block body %}
+<style>
+    body {
+        width: 80%;
+        margin: 20px auto;
+    }
+</style>
+    <a class="btn btn-outline-success" href="{{ path ('modelmanga_index')}}">Back to list</a>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Character Name</th> 
+                <th scope="col">Series</th> 
+                <th scope="col">Price</th> 
+                <th scope="col">Material</th> 
+                <th scope="col">UsingModel</th> 
+                
+                <th scope="col">Category</th> 
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row"> {{ modelmanga.id }} </td>
+                <td scope="row"> {{ modelmanga.Name }} </td>
+                <td scope="row"> 
+                    {% if modelmanga.image == null %}
+                         <img src="{{ asset ('images/anh1.jpg')}}" width="300px"> 
+                    {% else %}               
+                        <img src = "{{asset('images/products/' ~ modelmanga.image)}}" width="300px">
+  
+                    {% endif %}     
+                </td>
+                <td scope="row"> {{ modelmanga.CharacterName }} </td>
+                <td scope="row"> {{ modelmanga.Series }} </td>
+                <td scope="row"> {{ modelmanga.Price }} $</td>
+                <td scope="row"> {{ modelmanga.Material }} </td>
+                <td scope="row"> {{ modelmanga.UsingModel }} </td>
+                <td scope="row">
+                         <a href="{{ path ('category_detail', {'id' : modelmanga.category.id} ) }} "> 
+                                           {{ modelmanga.category.name }} 
+                         </a>
+                </td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path ('modelmanga_update', {'id' : modelmanga.id} )}}">Update</a>
+                    <a class="btn btn-danger" href="{{ path ('modelmanga_delete', {'id' : modelmanga.id} )}}"  
+                                              onclick = "return confirm ('Are you sure to delete ?')" >      
+                    Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

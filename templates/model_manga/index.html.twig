@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block title %} List Moldel Manga {% endblock %}
+
+{% block body %}
+<style>
+    body {
+        width: 80%;
+        margin: 20px auto;
+    }
+</style>
+ 
+<div class="container-fluid">
+    <div class="container">
+        {% for flash in app.flashes("Info") %}
+            <p class="alert alert-success"> {{ flash }}
+        {% endfor %}
+        {% for flash in app.flashes("Error") %}
+            <p class="alert alert-danger"> {{ flash }}
+        {% endfor %}
+    </div>
+    <a class="btn btn-outline-success" href="{{ path ('modelmanga_create') }}">Create Model Manga</a>
+    <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th> 
+                <th scope="col">Image</th> 
+            </tr>
+        </thead>
+        <tbody>
+        {% for modelmanga in modelmanga %}
+            <tr>
+                <td scope="row"> {{ modelmanga.id }} </td>
+                <td scope="row"> {{ modelmanga.name }} </td>
+                <td scope="row"><img src = "{{asset('images/products/' ~ modelmanga.image)}}" width = "300px"></td>
+                <td>
+                    <a class="btn btn-warning" href="{{ path ('modelmanga_detail', {'id' : modelmanga.id} )}}">Detail</a>   
+                    <a class="btn btn-warning" href="{{ path ('modelmanga_update', {'id' : modelmanga.id} )}}">Update</a>
+                    <a class="btn btn-danger" href="{{ path ('modelmanga_delete', {'id' : modelmanga.id} )}}"  
+                                              onclick = "return confirm ('Are you sure to delete ?')" >      
+                    Delete</a>
+                </td>
+                
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

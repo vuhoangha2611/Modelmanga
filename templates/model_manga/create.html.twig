@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+    <h2 class="mt-5 mb-5 text-center text-success"> Create Model Manga </h2>
+    <div class="col-md-6 offset-md-3"></div>
+    {{ form_start (form) }}
+        <div class="form-group">
+            <h6 class="text-primary"> Name </h6>
+            {{ form_widget (form.Name, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group mt-2">
+            <h6 class="text-primary"> Character Name </h6>
+            {{ form_widget (form.CharacterName, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group mt-2">
+            <h6 class="text-primary"> Series </h6>
+            {{ form_widget (form.Series, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group mt-2">
+            <h6 class="text-primary"> Model Price </h6>
+            {{ form_widget (form.Price, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group mt-2">
+            <h6 class="text-primary"> Model Material </h6>
+            {{ form_widget (form.Material, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group mt-2">
+            <h6 class="text-primary"> Using Model </h6>
+            {{ form_widget (form.UsingModel, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group mt-2">
+            <h6 class="text-primary"> Model Image </h6>
+            {{ form_widget (form.image, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group mt-2">
+            <h6 class="text-primary"> Category </h6>
+            {{ form_widget (form.Category, {'attr' : {'class' : 'form-control'}}) }}
+        </div>
+        <div class="form-group text-center mt-5">
+            <button class="btn btn-info mt-2">CREATE</button>
+        </div>
+    {{ form_end (form) }}
+</div>
+{% endblock %}
